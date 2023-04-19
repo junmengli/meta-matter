@@ -28,7 +28,7 @@ This document describes how to use the Matter binaries on the i.MX MPU platforms
 
 - K32W DK6 board → role: Matter lighting-app device
 
-    More information about the details of the K32W DK6 can be found on the [NXP official website](https://www.nxp.com/products/wireless/multiprotocol-mcus/end-node-matter-with-thread-development-platform:END-NODE-MATTER-THREAD).
+    More information about the details of the K32W DK6 can be found on the [NXP Matter Thread Platform](https://www.nxp.com/products/wireless/multiprotocol-mcus/end-node-matter-with-thread-development-platform:END-NODE-MATTER-THREAD).
 
 - Linux host computer
 
@@ -47,11 +47,11 @@ This document describes how to use the Matter binaries on the i.MX MPU platforms
 
 For devices that support the Thread protocol, this guide uses the NXP K32W running lighting application as an example. The i.MX MPU platform can perform Matter networking with end devices using OTBR. Matter with OTBR on i.MX devices network topology diagram as shown below.
 
-![imx93-otbr](../images/imx93-otbr.png)
+ <img src="../images/imx93-otbr.png" width = "500"/>
 
 Figure Matter with OTBR network topology diagram for i.MX93 EVK
 
-![imx8mm_imx6ull-otbr.png](../images/imx8mm_imx6ull-otbr.png)
+ <img src="../images/imx8mm_imx6ull-otbr.png" width = "500"/>
 
 Figure Matter with OTBR network topology diagram for i.MX8M Mini EVK or i.MX6ULL EVK 
 
@@ -60,22 +60,22 @@ The commissioning process consists of the following main stages:
 - Setup OTBR on i.MX MPU platform
 - Configure OpenThread Network
 - Factory reset lighting application on K32W DK6
-- Commissioning lighting-app on i.MX controller
-- Control lighting application on i.MX controller
+- Commission the lighting-app on the i.MX controller
+- Control the lighting-app on i.MX controller
 
 ### Setup OTBR on i.MX MPU platform
 
 To set up OTBR on the i.MX MPU platform, you need to do three steps:
 
-step1. Sync with the current time
+step1. Sync with the current time.
 
     $ date -s "2023-03-23 23:23"
 
-step2. Save the Wi-Fi SSID and password to a file
+step2. Save the Wi-Fi SSID and password to a file.
 
     $ wpa_passphrase ${SSID} ${PASSWORD} > wifiap.conf
 
-Step 3. Connecting to the Wi-Fi AP, Enabling BT, and Setting Up OTBR on i.MX MPU platform
+Step 3. Connecting to the Wi-Fi AP, Enabling BT, and Setting Up OTBR on i.MX MPU platform.
 
 #### For i.MX93 EVK + IW612 platform
 
@@ -166,12 +166,12 @@ For i.MX6ULL, it is mandatory to change fdt_file to setup WiFi and BT. You must 
  
 The i.MX6ULL OTBR setup commands are similar to the i.MX8M Mini commands, the only difference is hciattanch command.
 
-    #for i.MX8M Mini
+    # for i.MX8M Mini
     $ hciattach /dev/ttymxc0 any 115200 flow
-    #for i.MX6ULL
+    # for i.MX6ULL
     $ hciattach /dev/ttymxc1 any 115200 flow
 
-*Note: if "$ ifconfig wpan0" can find the wpan0 as shown bellow, the otbr-agent setup succesefully.*
+*Note: If "$ ifconfig wpan0" can find the wpan0 as shown below, the otbr-agent was successfully set up.*
 
     $ ifconfig wpan0
     wpan0: flags=4240<POINTOPOINT,NOARP,MULTICAST>  mtu 1280
@@ -203,9 +203,9 @@ Step2. Toggle reset.
 
 Step3. Press the USERINTERFACE button to start the BLE Advertising, which is mandatory for device commissioning.
 
-### Commissioning lighting-app on i.MX controller
+### Commission the lighting-app on the i.MX controller
 
-Commissioning command like bellow.
+Commissioning command as below.
     
     # ble-thread pairing
     $ chip-tool pairing ble-thread 8888  hex:0e080000000000010000000300001035060004001fffe00208d625374d9c65c2a30708fd57eb72a74fa52505108a177ca3b66becf3bbe2149eb3d135c8030f4f70656e5468726561642d656338350102ec85041044ac05395e78940b72c1df1e6ad02a120c0402a0f7f8 20202021 3840
@@ -214,41 +214,43 @@ The parameter after "ble-thread" is node-id (here it is 8888, it can be any posi
 
 If there is a **“Device commissioning completed with success”** message in the controller log, it means that the Matter device has successfully joined the network.
 
-### Control lighting application on i.MX controller
+### Control the lighting-app on i.MX controller
 
     # control the lighting on/off
     $ chip-tool onoff toggle 8888 1
 
     # read the lighting on-off status
     $ chip-tool onoff read on-off 8888 1
+    
+    
+Since chip-tool-trusty can run on the i.MX8M Mini EVK platform, the chip-tool in the above commands can replace chip-tool-trusty. **Note that before running chip-tool-trusty, you should use to the [enable command](#enable-the-secure-storage-service) to enable the secure storage service.**
+
+<a name="other-matter-binaries"></a>
 
 ## Running other Matter binaries on i.MX MPU platform
 
-For example applications running on the i.MX MPU platform, you can test the applications through two commissioning methods. In these two commissioning methods, it is necessary to use the i.MX platform running chip-tool as the controller device and another i.MX platform as the end device.
+For example applications running on the i.MX MPU platform, you can test the applications using two commissioning methods. These two commissioning methods require the i.MX platform running the chip tool as the controller device and another i.MX platform as the end device.
 
 ### Run example applications with ble-wifi commissioning method
 
 The network topology diagram by using ble-wifi commissioning is shown below.
 
- <img src="../images/ble-wifi.png" width = "500" alt="图片名称" align=center />
+ <img src="../images/ble-wifi.png" width = "500"/>
 
+Figure i.MX Network Topology Diagram for ble-wifi Commissioning
 
-![ble-wifi](../images/ble-wifi.png " =100x" )
-
-Figure network topology diagram for i.MX93 EVK
-
-For ble-wifi commissioning method. The controller device need setup BLE and connect to a Wi-Fi AP, the end device need setup BLE.
+For ble-wifi commissioning method, the controller device need to setup BLE and connect to a Wi-Fi AP, the end device needs to setup BLE.
 
 The commissioning process consists of the following main stages:
 
-- Set up BLE and connecte to a wifi AP on controller device
+- Set up BLE and connect to a Wi-Fi AP on the controller device
 - Load Wi-Fi/BT firmware and set up BLE on the end device
 - Run the example application on the end device
-- Commisioning and control the end devices on the controller device
+- Commision and control the end devices on the controller device
 
 #### Set up BLE and connecte to a wifi AP on controller device
 
-step1. Sync with current time
+step1. Sync with current time.
 
     $ date -s "2023-03-23 23:23"
 
@@ -297,13 +299,13 @@ For the i.MX6ULL EVK, the setup commands are similar to the i.MX8M Mini commands
 
 #### Load Wi-Fi/BT firmware and set up BLE on the end device
 
-step1. Sync with current time
+step1. Sync with current time.
 
     $ date -s "2023-03-23 23:23"
 
-step2. Load Wi-Fi/BT firmware and set up BLE 
+step2. Load Wi-Fi/BT firmware and set up BLE.
 
-For i.MX93 EVK
+For i.MX93 EVK:
 
         、、、
         modprobe moal mod_para=nxp/wifi_mod_para.conf
@@ -319,7 +321,7 @@ For i.MX93 EVK
         ifconfig mlan0 192.168.1.1
         、、、
 
-For i.MX8M Mini EVK
+For i.MX8M Mini EVK:
 
         、、、
         modprobe moal mod_para=nxp/wifi_mod_para.conf
@@ -333,7 +335,7 @@ For i.MX8M Mini EVK
         ifconfig mlan0 192.168.1.1
         、、、
 
-For i.MX6ULL EVK, replace command "hciattach /dev/ttymxc0 any 115200 flow" with "hciattach /dev/ttymxc1 any 115200 flow" in i.MX8M Mini EVK.
+**For i.MX6ULL EVK, replace command "hciattach /dev/ttymxc0 any 115200 flow" with "hciattach /dev/ttymxc1 any 115200 flow" in i.MX8M Mini EVK commands.**
  
 #### Run the example application on the end device
 
@@ -351,33 +353,38 @@ After setting up the network on both side platforms, run the example application
     # to run nxp-thermostat-app
     $ chip-bridge-app --wifi --ble-device 0
 
-#### Finally, commissioning  and control the end devices on the controller device 
+#### Finally, commission and control the end devices on the controller device.
 
-    # commissioning with end devices
-    $ chip-tool pairing ble-wifi 8888 {AP_SSID} {AP_password} 20202021 3840
+    # commission the end devices
+    $ chip-tool pairing ble-wifi 8888 {SSID} {PASSWORD} 20202021 3840
 
     # control the lighting app / chip-all-clusters-app
     $ chip-tool onoff toggle 8888 1
     $ chip-tool onoff read on-off 8888 1
 
+    # read the local temperature form nxp-thermostat-app
     $ chip-tool thermostat read local-temperature 8888 1
     
     # to test chip-bridge-app
-    $ chip-tool actions read setup-url 8888 1
-    $ chip-tool actions read endpoint-lists 8888 1
-    $ chip-tool actions read action-list 8888 1
-    $ chip-tool actions instant-action 0x1001 8888 1   #the room 1 LED1 LED2 will be ON on the bridge end.
+    $ chip-tool actions read setup-url 8888 1          # read setup-url
+    $ chip-tool actions read endpoint-lists 8888 1     # read endpoint-lists
+    $ chip-tool actions read action-list 8888 1        # read action-list
+    $ chip-tool actions instant-action 0x1001 8888 1   # the room 1 LED1 LED2 will be ON on the bridge end.
 
-Currently, applications with trusty are supported on the i.MX8M Mini EVK, such as chip-tool-trusty, chip-lighting-app-trusty, and nxp-thermostat-app-trusty. Before running these example applications, you need to execute the following commands to enable the secure storage service (only need to execute once after initial boot), and the the following commissioning  steps are consistent with the above.
+Currently, applications with trusty are supported on the i.MX8M Mini EVK, such as chip-tool-trusty, chip-lighting-app-trusty, and nxp-thermostat-app-trusty. Before running these example applications, you must execute the following commands to enable the secure storage service (only need to execute once after initial boot), and the the following commissioning steps are consistent with the above.
+
+<a name="enable-the-secure-storage-service"></a>
 
     $ systemctl enable storageproxyd
     $ systemctl start storageproxyd
 
-##  Run example applications with onnetwork commissioning method
+###  Run example applications with onnetwork commissioning method
 
 To test onnetwork, two devices need to connecte to the same Wi-Fi AP or connect to the same local area network. Taking the case of connecting to the same Wi-Fi AP as an example, the network topology diagram is shown below.
 
-![onnetwork](../images/onnetwork.png)
+<img src="../images/onnetwork.png" width = "500"/>
+
+Figure i.MX Network Topology Diagram for Onnetwork Commissioning
 
 First, you must connect the i.MX device that is playing as controller device to a Wi-Fi AP using the following commands.
 
@@ -401,11 +408,11 @@ Then, run example applications on another i.MX device that plays as the end devi
     # to run nxp-thermostat-app
     $ chip-bridge-app
 
-Final, commissioning and control the end device on the controller device. 
+Final, commission and control the end device on the controller device. 
 
-    # commissioning with end devices
+    # commission the end devices
     $ chip-tool pairing onnetwork 8888 20202021
 
-    # controll command same as ble-wifi method
+    # controll command same as ble-wifi commissioning method
 
-To run applications with trusty on the i.MX8M Mini EVK, 
+To run applications with trusty on the i.MX8M Mini EVK by onnetwork commissioning way, you should use to the [enable command](#enable-the-secure-storage-service) to enable the secure storage service.

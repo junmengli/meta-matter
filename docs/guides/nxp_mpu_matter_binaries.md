@@ -413,6 +413,6 @@ Final, commission and control the end device on the controller device.
     # commission the end devices
     $ chip-tool pairing onnetwork 8888 20202021
 
-    # controll command same as ble-wifi commissioning method
+    # controll commands same as ble-wifi commissioning method
 
 To run applications with trusty on the i.MX8M Mini EVK by onnetwork commissioning way, you should use to the [enable command](#enable-the-secure-storage-service) to enable the secure storage service.

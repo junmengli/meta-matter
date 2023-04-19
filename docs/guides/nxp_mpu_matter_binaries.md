@@ -164,7 +164,7 @@ For i.MX6ULL, it is mandatory to change fdt_file to setup WiFi and BT. You must 
     => print fdt_file
     fdt_file=imx6ull-14x14-evk-btwifi-sdio3_0.dtb
  
-The i.MX6ULL OTBR setup commands are similar to the i.MX8M Mini commands, the only difference is hciattanch command.
+The i.MX6ULL OTBR setup commands are similar to the i.MX8M Mini commands, the only difference is the hciattanch command.
 
     # for i.MX8M Mini
     $ hciattach /dev/ttymxc0 any 115200 flow
@@ -212,7 +212,7 @@ Commissioning command as below.
 
 The parameter after "ble-thread" is node-id (here it is 8888, it can be any positive integer starting from 1) that should be set uniquely for each Matter device that joined the network, the last but one parameter is pin code (here it is fixed to 20202021), the last parameter is discriminator (here it is fixed to 3840).
 
-If there is a **“Device commissioning completed with success”** message in the controller log, it means that the Matter device has successfully joined the network.
+If there is a message **“Device commissioning completed with success”** in the controller log, it means that the Matter device has successfully joined the network.
 
 ### Control the lighting-app on the i.MX controller
 
@@ -237,18 +237,18 @@ The network topology diagram by using ble-wifi commissioning is shown below.
 
  <img src="../images/ble-wifi.png" width = "500"/>
 
-Figure i.MX Network Topology Diagram for ble-wifi Commissioning
+Figure i.MX network topology diagram for ble-wifi commissioning
 
-For ble-wifi commissioning method, the controller device need to setup BLE and connect to a Wi-Fi AP, the end device needs to setup BLE.
+The ble-wifi commissioning method requires the controller device needs to setup BT and connect to a Wi-Fi AP, the end device needs to setup BT.
 
 The commissioning process consists of the following main stages:
 
 - Set up BLE and connect to a Wi-Fi AP on the controller device
-- Load Wi-Fi/BT firmware and set up BLE on the end device
+- Load the Wi-Fi/BT firmware and set up BLE on the end device
 - Run the example application on the end device
 - Commision and control the end devices on the controller device
 
-#### Set up BLE and connecte to a wifi AP on controller device
+#### Set up BT and connecte to a wifi AP on controller device
 
 step1. Sync with current time.
 
@@ -258,7 +258,7 @@ step2. Save Wi-Fi SSID and Password to a file.
 
     $ wpa_passphrase ${SSID} ${PASSWORD} > wifiap.conf
 
-step3. setup BLE and connectd to a WiFi AP.
+step3. Setup BT and connectd to a WiFi AP.
 
 For i.MX93 EVK:
 
@@ -297,13 +297,13 @@ For the i.MX6ULL EVK, the setup commands are similar to the i.MX8M Mini commands
     # for i.MX6ULL EVK
     $ hciattach /dev/ttymxc1 any 115200 flow
 
-#### Load Wi-Fi/BT firmware and set up BLE on the end device
+#### Load the Wi-Fi/BT firmware and set up BT on the end device
 
 step1. Sync with current time.
 
     $ date -s "2023-03-23 23:23"
 
-step2. Load Wi-Fi/BT firmware and set up BLE.
+step2. Load the Wi-Fi/BT firmware and set up BT.
 
 For i.MX93 EVK:
 
@@ -380,13 +380,13 @@ Currently, applications with trusty are supported on the i.MX8M Mini EVK, such a
 
 ###  Run example applications with onnetwork commissioning method
 
-To test onnetwork, two devices need to connecte to the same Wi-Fi AP or connect to the same local area network. Taking the case of connecting to the same Wi-Fi AP as an example, the network topology diagram is shown below.
+To test onnetwork, two devices must connecte to the same Wi-Fi AP or connect to the same local area network. Taking the case of connecting to the same Wi-Fi AP as an example, the network topology diagram is shown below.
 
 <img src="../images/onnetwork.png" width = "500"/>
 
 Figure i.MX Network Topology Diagram for Onnetwork Commissioning
 
-First, you must connect the i.MX device that is playing as controller device to a Wi-Fi AP using the following commands.
+First, you must connect the i.MX device acting as the controller device to a Wi-Fi AP using the following commands.
 
     wpa_passphrase ${SSID} ${PASSWORD} > wifiap.conf
 
@@ -394,7 +394,7 @@ First, you must connect the i.MX device that is playing as controller device to 
     wpa_supplicant -d -B -i mlan0 -c ./wifiap.conf
     udhcpc -i mlan0
 
-Then, run example applications on another i.MX device that plays as the end device.
+Then, run example applications on another i.MX device that acts as the end device.
 
     # to run chip-lighting-app 
     $ chip-lighting-app

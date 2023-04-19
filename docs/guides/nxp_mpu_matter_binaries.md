@@ -77,7 +77,7 @@ step2. Save the Wi-Fi SSID and password to a file.
 
 Step3. Connecting to the Wi-Fi AP, Enabling BT, and Setting Up OTBR on the i.MX MPU Platform.
 
-#### For i.MX93 EVK + IW612 platform
+#### For i.MX93 EVK + IW612 platform:
 
         、、、
         ifconfig eth0 down
@@ -111,7 +111,7 @@ Step3. Connecting to the Wi-Fi AP, Enabling BT, and Setting Up OTBR on the i.MX 
         otbr-web &
         、、、
 
-#### For i.MX8M Mini EVK + 88W8987 + K32W platform
+#### For i.MX8M Mini EVK + 88W8987 + K32W platform:
 
         、、、
         ifconfig eth0 down
@@ -138,7 +138,7 @@ Step3. Connecting to the Wi-Fi AP, Enabling BT, and Setting Up OTBR on the i.MX 
         otbr-web &
         、、、
 
-#### For i.MX6ULL EVK + 88W8987 + K32W platform
+#### For i.MX6ULL EVK + 88W8987 + K32W platform:
 
 For i.MX6ULL, it is mandatory to change fdt_file to setup WiFi and BT. You must enter uboot mode and run follow comands,, then reboot the board.
 
@@ -260,7 +260,7 @@ step2. Save Wi-Fi SSID and Password to a file.
 
 step3. setup BLE and connectd to a WiFi AP.
 
-For i.MX93 EVK
+For i.MX93 EVK:
 
         、、、
         modprobe moal mod_para=nxp/wifi_mod_para.conf
@@ -277,7 +277,7 @@ For i.MX93 EVK
         hciconfig hci0 up
         、、、
 
-For i.MX8M Mini EVK
+For i.MX8M Mini EVK:
 
         、、、
         modprobe moal mod_para=nxp/wifi_mod_para.conf

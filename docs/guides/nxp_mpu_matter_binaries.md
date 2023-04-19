@@ -61,7 +61,7 @@ The commissioning process consists of the following main stages:
 - Configure OpenThread Network
 - Factory reset lighting application on K32W DK6
 - Commission the lighting-app on the i.MX controller
-- Control the lighting-app on i.MX controller
+- Control the lighting-app on the i.MX controller
 
 ### Setup OTBR on i.MX MPU platform
 
@@ -214,7 +214,7 @@ The parameter after "ble-thread" is node-id (here it is 8888, it can be any posi
 
 If there is a **“Device commissioning completed with success”** message in the controller log, it means that the Matter device has successfully joined the network.
 
-### Control the lighting-app on i.MX controller
+### Control the lighting-app on the i.MX controller
 
     # control the lighting on/off
     $ chip-tool onoff toggle 8888 1

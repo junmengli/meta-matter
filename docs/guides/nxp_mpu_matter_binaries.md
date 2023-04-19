@@ -2,17 +2,17 @@
 
 This document describes how to use the Matter binaries on the i.MX MPU platforms. It shows how to run Matter binaries with OTBR on the i.MX MPU platform and how to commission with the K32W DK6 lighting application, then it shows how to run i.MX Matter binaries for ble-wifi and onnetwork commissioning.
 
- [**Hardware requirement**](#hardware-requirement)
+ [**Hardware requirements**](#hardware-requirements)
 
- [**Software requirement**](#software-requirement)
+ [**Software requirements**](#software-requirements)
 
  [**Running Matter binaries with OTBR on the i.MX MPU platform**](#matter-binaries-with-otbr)
 
  [**Running other Matter binaries on the i.MX MPU platform**](#other-matter-binaries)
 
-<a name="hardware-requirement"></a>
+<a name="hardware-requirements"></a>
 
-## Hardware requirement
+## Hardware requirements
 
 - i.MX93 EVK + IW612(WiFi-BT-Thread tri-radio single-chip module)  → Role: Matter controller or Matter end device
 
@@ -34,9 +34,9 @@ This document describes how to use the Matter binaries on the i.MX MPU platforms
 
 - Wi-Fi access point supporting IPv6 and IPv6 DHCP service
 
-<a name="software-requirement"></a>
+<a name="software-requirements"></a>
 
-## Software requirement
+## Software requirements
 
 - You can refer to the [Yocto images and binaries build guide](../../README.md) to build Yocto images and binaries for i.MX Matter devices. 
 - You can refer to [K32W lighting example application guide](https://github.com/project-chip/connectedhomeip/tree/master/examples/lighting-app/nxp/k32w/k32w0/README.md) to build the K32W DK6 firmware and lighting-app firmware and set up the K32W lighting example application.

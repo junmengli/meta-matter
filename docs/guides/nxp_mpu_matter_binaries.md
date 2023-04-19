@@ -14,21 +14,21 @@ This document describes how to use the Matter binaries on the i.MX MPU platforms
 
 ## Hardware requirement
 
-- i.MX93 EVK + IW612(WiFi-BT-Thread tri-radio single-chip module)  → role: Matter controller or Matter end device
+- i.MX93 EVK + IW612(WiFi-BT-Thread tri-radio single-chip module)  → Role: Matter controller or Matter end device
 
-- i.MX8M Mini EVK + 88W8987(WiFi-BT combo module)  → role: Matter controller or Matter end device
+- i.MX8M Mini EVK + 88W8987(WiFi-BT combo module)  → Role: Matter controller or Matter end device
 
-- i.MX6ULL EVK + 88W8987(WiFi-BT combo module)  → role: Matter controller or Matter end device
+- i.MX6ULL EVK + 88W8987(WiFi-BT combo module)  → Role: Matter controller or Matter end device
 
-   For more information on the details of the i.MX MPU Matter platforms, please refer to [NXP MPU Matter platform](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mpu-linux-hosted-matter-development-platform:MPU-LINUX-MATTER-DEV-PLATFORM).
+   For more information on the details of the i.MX MPU Matter platforms, please visit [NXP MPU Matter platform](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mpu-linux-hosted-matter-development-platform:MPU-LINUX-MATTER-DEV-PLATFORM).
 
-- K32W RCP → role: OpenThread RCP module
+- K32W RCP → Role: OpenThread RCP module
     
    A K32W061 dongle is required to run the [OpenThread Radio Co-Processor](https://openthread.io/platforms/co-processor) firmware.
 
-- K32W DK6 board → role: Matter lighting-app device
+- K32W DK6 board → Role: Matter lighting-app device
 
-    More information about the details of the K32W DK6 can be found on the [NXP Matter Thread Platform](https://www.nxp.com/products/wireless/multiprotocol-mcus/end-node-matter-with-thread-development-platform:END-NODE-MATTER-THREAD).
+    More information about the details of the K32W DK6 can be found at [NXP Matter Thread Platform](https://www.nxp.com/products/wireless/multiprotocol-mcus/end-node-matter-with-thread-development-platform:END-NODE-MATTER-THREAD).
 
 - Linux host computer
 

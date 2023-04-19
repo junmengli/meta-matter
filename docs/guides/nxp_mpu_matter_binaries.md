@@ -140,7 +140,7 @@ Step3. Connecting to the Wi-Fi AP, Enabling BT, and Setting Up OTBR on the i.MX 
 
 #### For i.MX6ULL EVK + 88W8987 + K32W platform:
 
-For i.MX6ULL, it is mandatory to change fdt_file to setup WiFi and BT. You must enter uboot mode and run follow comands,, then reboot the board.
+For i.MX6ULL, it is mandatory to change fdt_file to setup WiFi and BT. You must enter uboot mode and run follow comands, then reboot the board.
 
     => print fdt_file
     fdt_file=undefined

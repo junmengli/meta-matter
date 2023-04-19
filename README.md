@@ -46,7 +46,7 @@ The Following Matter related binaries will be installed into the Yocto image roo
 
 # i.MX MPU Matter platform
 
-We currently support 3 i.MX MPU platforms, which are the i.MX93 EVK, the i.MX8M Mini EVK, and the i.MX6ULL EVK. More details can be found at [NXP i.MX MPU Matter Platform](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mpu-linux-hosted-matter-development-platform:MPU-LINUX-MATTER-DEV-PLATFORM).
+We currently support 3 i.MX MPU platforms, which are the i.MX93 EVK, the i.MX8M Mini EVK, and the i.MX6ULL EVK. For more details, please see the [NXP i.MX MPU Matter Platform](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mpu-linux-hosted-matter-development-platform:MPU-LINUX-MATTER-DEV-PLATFORM).
 
 <a name="How-to-build-the-Yocto-image"></a>
 

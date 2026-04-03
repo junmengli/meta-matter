@@ -10,7 +10,7 @@
 ## Introduction
 The IWxxx NXP chipsets ([IW612](https://www.nxp.com/products/IW612), [IW610](https://www.nxp.com/products/IW610)) features highly integrated 2.4/5 GHz dual-band 1x1 Wi-Fi 6, Bluetooth/Bluetooth Low Energy 5.4 and 802.15.4 tri-radio single-chip solution<br>
 [NXP i.MX meta-nxp-connectivity Yocto layer](https://github.com/nxp-imx/meta-nxp-connectivity/tree/master) provides Yocto recipes to enable Matter, OpenThread and Zigbee for i.MX MPU<br>
-Prerequisite is to follow [instructions](https://github.com/nxp-imx/meta-nxp-connectivity/tree/master?tab=readme-ov-file#How-to-build-the-Yocto-image) to first build the complete **i.MX Matter** image
+Prerequisite is to follow [instructions](../../README.md#how-to-build-the-yocto-image-with-an-integrated-openthread-border-router) to first build the complete **i.MX Matter** image
 
 Following sections specifically describe how to experiment Zigbee & Thread Dualpan features with 3-radio IWxxx NXP chipsets e.g. IW612 or IW610<br>
 Dedicated IWxxx Zigbee stack and examples are first introduced<br>

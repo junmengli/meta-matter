@@ -6,7 +6,7 @@
 
 [**What's new**](#new-feature)
 
-[**How to build the Yocto image with integrated OpenThread Border Router**](#How-to-build-the-Yocto-image)
+[**How to build the Yocto image with integrated OpenThread Border Router**](#how-to-build-the-yocto-image)
 
 [**How to build OpenThread Border Router and OpenThread Daemon with Yocto SDK**](#How-to-build-OTBR-OT)
 
@@ -74,7 +74,7 @@ We currently support 9 i.MX MPU platforms, which are the i.MX93 FRDM, the i.MX93
 - Upgraded Matter application source code to v1.5-branch 2026 Spring version.
 - Support Easymesh network.
 
-<a name="How-to-build-the-Yocto-image"></a>
+<a name="how-to-build-the-yocto-image"></a>
 
 # How to build the Yocto image with integrated OpenThread Border Router
 

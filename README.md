@@ -6,7 +6,7 @@
 
 [**What's new**](#new-feature)
 
-[**How to build the Yocto image with integrated OpenThread Border Router**](#how-to-build-the-yocto-image)
+[**How to build the Yocto image with integrated OpenThread Border Router**](#how-to-build-the-yocto-image-with-an-integrated-openthread-border-router)
 
 [**How to build OpenThread Border Router and OpenThread Daemon with Yocto SDK**](#How-to-build-OTBR-OT)
 
